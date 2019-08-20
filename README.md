@@ -1,4 +1,4 @@
-# wechat-editor
+# wechat-components
 
 ### 项目依赖
 
