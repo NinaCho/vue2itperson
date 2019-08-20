@@ -1,0 +1,20 @@
+@import '../../styles/themes.scss';
+
+.number {
+  display: flex;
+}
+
+.icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.count {
+  width: 60rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  font-size: 16px;
+  color: $dark;
+  text-align: center;
+  min-height: auto;
+}

@@ -1,0 +1,169 @@
+// Utility classes
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+// Toggling content
+.hidden {
+  display: none !important;
+}
+
+.show {
+  display: block;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+// Typography 排版
+// Alignment
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-wrap {
+  white-space: normal;
+  word-break: break-all;
+}
+
+// 解決Hybrid模式下的Fixed問題
+.relative {
+  position: relative !important;
+}
+
+.absolute {
+  position: absolute !important;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.fixed-bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+// 文字自动省略
+// 不可再弹性布局中使用，失效
+.ellipsis-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 弹性布局中实现1行打省略号
+.ellipsis-box {
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  overflow: hidden;
+}
+
+.ellipsis-box-1 {
+  @extend .ellipsis-box;
+  -webkit-line-clamp: 1;
+}
+
+// 任意场景适用
+.ellipsis-2 {
+  @extend .ellipsis-box;
+  -webkit-line-clamp: 2;
+}
+
+// 英文字母大小写转换
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-line-through {
+  text-decoration: line-through;
+}
+
+// Text color
+.text-primary {
+  color: $primary;
+}
+
+.text-exponent {
+  color: $orange;
+}
+
+.text-red {
+  color: $red;
+}
+
+.text-dark {
+  color: $dark;
+}
+
+.text-gray {
+  color: $gray;
+}
+
+.text-light {
+  color: $light;
+}
+
+.text-white {
+  color: #fff;
+}
+
+// Text size
+@for $i from 12 through 28 {
+  .font#{$i} {
+    font-size: $i + px;
+  }
+}
+
+// 背景色
+.bg-primary {
+  background-color: $primary;
+  color: #fff;
+}
+.bg-gray {
+  background: $body-color;
+  color: #fff;
+}

@@ -1,0 +1,17 @@
+{
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f6f6f6"
+  },
+  "plugins": {},
+  "permission": {},
+  "sitemapLocation": "sitemap.json",
+  "pages": [
+    "main/pages/demo/demo",
+    "main/pages/demo/addSupplier",
+    "main/pages/demo/supplierDetail"
+  ]
+}

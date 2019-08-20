@@ -1,0 +1,45 @@
+.mask {
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.popup {
+  background-color: #fff;
+  box-sizing: border-box;
+  transform: translate3d(0, 100%, 0);
+  transform-origin: center;
+
+  &.show {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  &-header {
+    position: relative;
+    background-color: #fff;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+  }
+
+  &-fillet {
+    border-radius: 30rpx 30rpx 0 0;
+  }
+}
+
+.mask,
+.popup {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 900;
+  transition: all 0.2s ease-in-out;
+  visibility: hidden;
+}

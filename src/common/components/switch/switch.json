@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "base-radio": "../radio/radio"
+  }
+}

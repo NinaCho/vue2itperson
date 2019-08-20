@@ -1,0 +1,20 @@
+<view class="number">
+  <block wx:if="{{value > 0}}">
+    <image bind:tap="handleSubtract" src="../../images/icon_quantity_round_minus_normal.png" class="icon" />
+
+    <input
+      class="count"
+      value="{{value}}"
+      type="number"
+      maxlength="140"
+      confirm-type="done"
+      bindconfirm="handleInput"
+      bindblur="handleInput"
+      wx:if="{{editable}}"
+    />
+    <view class="count" wx:else>{{value}}</view>
+  </block>
+
+  <image bind:tap="handleAdd" src="../../images/icon_quantity_round_plus_{{(max && value >= max) ? 'disable' : 'normal'}}.png" class="icon" />
+</view>
+

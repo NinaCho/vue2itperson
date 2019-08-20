@@ -1,0 +1,11 @@
+<view style="width: {{width}}rpx;height: {{height}}rpx;" wx:if="{{!checked && unCheckedImage == 'none'}}" />
+
+<image
+  class="radio"
+  src="{{checked ? checkedImage : unCheckedImage}}"
+  lazy-load="true"
+  bind:tap="handleToggle"
+  style="width: {{width}}rpx;height: {{height}}rpx;"
+  wx:else
+/>
+

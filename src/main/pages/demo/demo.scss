@@ -1,0 +1,33 @@
+@import '../../../common/styles/themes.scss';
+
+.container {
+  position: relative;
+}
+
+.demo-container {
+  width: 100%;
+  padding: 15px 15px 0 15px;
+  box-sizing: border-box;
+}
+
+.bottom-container {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.append-button {
+  display: inline-block;
+  color: #333;
+  background: #FFD700;
+  border: 1rpx solid #FFD700;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 15px;
+  margin-right: 10px;
+}

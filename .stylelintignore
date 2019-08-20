@@ -1,0 +1,6 @@
+*.js
+*.wxml
+*.json
+*.wxs
+
+node_modules/

@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="demo-container">
+    <textarea/>
+    </view>
+  <!-- 添加按钮 -->
+  <view class="bottom-container">
+    <view class="append-button">添加图片</view>
+    <view class="append-button">完成</view>
+  </view>
+</view>
+

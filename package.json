@@ -1,0 +1,70 @@
+{
+  "name": "calcium-mp",
+  "private": true,
+  "version": "1.0.0",
+  "description": "mini programs for calcium",
+  "keywords": [
+    "aeon",
+    "calcium"
+  ],
+  "scripts": {
+    "start": "gulp",
+    "create": "node ./script/create.js",
+    "init": "node ./script/init.js"
+  },
+  "author": "huangdaisong@rainbowcn.com",
+  "repository": {
+    "type": "git",
+    "url": "git@code.lingzhi.com:framework/calcium-mp.git"
+  },
+  "bugs": {
+    "url": "http://code.lingzhi.com/framework/calcium-mp/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "prettier --write",
+        "eslint",
+        "git add"
+      ],
+      "*.{scss, less, wxss}": [
+        "prettier --write",
+        "stylelint",
+        "git add"
+      ],
+      "*.json": [
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "relative": true
+  },
+  "devDependencies": {
+    "del": "^5.0.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "gulp": "^4.0.2",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2",
+    "husky": "^2.2.0",
+    "lint-staged": "^8.2.1",
+    "node-sass": "^4.12.0",
+    "prettier": "^1.18.2",
+    "stylelint": "^9.10.1",
+    "stylelint-config-standard": "^18.3.0",
+    "through2": "^3.0.1",
+    "yargs": "^13.3.0"
+  }
+}

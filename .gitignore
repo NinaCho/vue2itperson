@@ -1,0 +1,11 @@
+# 忽略苹果自动创建的文件
+.DS_Store
+.idea
+
+node_modules
+package-lock.json
+
+project.config.json
+
+dist
+

@@ -1,0 +1,91 @@
+<!--
+  模态窗组件
+  author: 小草帽
+  date：2019-05-28
+
+  参数说明：
+
+  // 自定义Slot内容 默认false 
+  customSlot false/true
+
+  // 状态
+  status={
+    // 确认按钮是否显示 默认true true/false  
+    confirmBtn:true,
+    // 取消按钮是否显示 默认true true/false  
+    cancelBtn:true,
+  }
+
+  // 文字
+  text={
+    // 标题
+    title : '这就是标题', 
+    // 取消按钮文本 默认："取消"                           
+    cancelText:'取消啊', 
+    // 确定按钮文本  默认："确定"
+    confirmText:'ok',
+  }
+
+  // 样式 多个样式用分号隔开;
+  style={
+    // modal框样式
+    modalStyle: 'color:#f60;font-size:10px',
+    // 遮罩样式
+    maskStyle:'rgba(255,255,255,0.5)',
+    // 标题
+    titleStyle: 'color:#999;font-size:14px',
+    // 内容
+    contentStyle: 'color:#ccc;font-size:14px',
+    // 取消按钮
+    cancelBtnStyle: 'color:#f60;font-size:14px',
+    // 确定按钮
+    confirmBtnStyle: 'color:#000;font-size:14px',
+  }
+
+
+  示例：
+  <alertView id="alertView" />
+  <alertView id="alertView" customSlot='{{true}}'>
+    <view slot="modalContent">
+      开始你的表演
+    </view>
+  </alertView>
+
+  基础案例
+  handleShowAlert(){
+    this.alertView = this.selectComponent("#alertView");
+    this.alertView.show({
+      status:{
+        cancelBtn: false,
+      },
+      text: {
+        title:'12',
+        content: 'jkjkjk',
+      },
+      style: {
+        titleStyle: 'color:#f60;font-size:14px',
+        contentStyle:'color:#f60;',
+      },
+      confirm: () => {
+        // 可以在这里进行操作 比如确认删除 刷新页面
+      },
+    })
+  }
+-->
+
+<view class="modalBox" wx:if="{{show}}" catchtouchmove='touchMove'>
+  <view class="mask" style='{{params.style.maskStyle}}'></view>
+  <view class="modal" style='{{params.style.modalStyle}}'>
+    <view class="modalpad">
+      <text class="modalTitle" style='{{params.style.titleStyle}}'>{{params.text.title}}</text>
+      <view class="modalContent" wx:if="{{!customSlot}}" style="{{params.style.modalContentStyle}}">
+        <view class='flexcc textC' style='{{params.style.contentStyle}}'>{{params.text.content}}</view>
+      </view>
+      <slot name="modalContent" wx:else></slot>
+    </view>
+    <view class="btnBox">
+      <view class='cancelBtn' style='{{params.style.cancelBtnStyle}}' catchtap='handleCancel' wx:if='{{params.status.cancelBtn}}'>{{params.text.cancelText}}</view>
+      <view class='confirmBtn' style='{{params.style.confirmBtnStyle}}' catchtap='handleConfirm' wx:if='{{params.status.confirmBtn}}'>{{params.text.confirmText}}</view>
+    </view>
+  </view>
+</view>
