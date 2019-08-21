@@ -4,7 +4,7 @@
  * npm run create --p=order --sys=home [--f=folder]
  *
  * @desc      Create Page or Component Automatically
- * @author    黄代松(Dyson) <huangdaisong@rainbowcn.com>
+ * @author     sumy
  * @date      2019-07-16
  */
 

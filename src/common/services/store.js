@@ -2,52 +2,13 @@
  * StoreService
  *
  * @desc      门店信息
- * @author    黄代松(Dyson) <huangdaisong@rainbowcn.com>
+ * @author     sumy
  * @date      2019-07-15
  */
 const location = require('../utils/location')
 const { trimZeroString, roundString } = require('../utils/stringFormat')
 const { HOST } = require('../../configs')
 const { request } = require('../wechat')
-
-// /// 扫码的门店编码（如果用户扫码进来，则固定门店编码，切换门店的时候需要清空）
-// var scanStoreId = null
-// module.exports.scanStoreId = scanStoreId
-
-// /// 门店编码
-// var storeId = null
-// module.exports.storeId = storeId
-
-// /// 门店名称
-// var storeName = null
-// module.exports.storeName = storeName
-
-// /// 门店地址
-// var storeAddress = null
-// module.exports.storeAddress = storeAddress
-
-// /// 门店类型（1为门店，2为便利店）
-// var storeType = 1
-// module.exports.storeType = storeType
-
-// /// 城市编码
-// var cityCode = null
-// module.exports.cityCode = cityCode
-
-// /// 城市名称
-// var cityName = null
-// module.exports.cityName = cityName
-
-// /// 省份名称
-// var provinceName = null
-// module.exports.provinceName = provinceName
-
-// /// 附近门店列表
-// var nearbyStoreList = null
-// module.exports.nearbyStoreList = nearbyStoreList
-
-// /// 最近门店列表（附近门店列表中，400米（含）以内的门店和150米（含）以内的便利店）
-// var nearestStoreList = null
 
 class Store {
   fetchNearestStores(filterType) {

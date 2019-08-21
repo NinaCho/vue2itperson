@@ -2,7 +2,7 @@
  * SearchBar
  *
  * @description: 搜索栏公共组件
- * @author: huangdaisong@rainbowcn.com
+ * @author:  
  * @date: 2019-04-09 15:03:19
  */
 

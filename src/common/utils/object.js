@@ -2,7 +2,7 @@
  * object-helper
  *
  * @desc      对象操作工具
- * @author    黄代松(Dyson) <huangdaisong@rainbowcn.com>
+ * @author     sumy
  * @date      2019-07-18
  */
 

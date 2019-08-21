@@ -2,7 +2,7 @@
  * Radio - Component
  *
  * @desc      单选组件
- * @author    黄代松(Dyson) <huangdaisong@rainbowcn.com>
+ * @author     sumy
  * @date      2019-07-26
  */
 

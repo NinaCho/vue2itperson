@@ -1,6 +1,6 @@
 
 /**
- * SupplierList - Page
+ * demo - Page
  *
  * @desc
  * @author    中文名(english_name) <xxx@xxx.com>
@@ -12,61 +12,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // 供应商列表
-    supplierList: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    const supplierList = [
-      {
-        imageUrl: '/common/images/logo.png',
-        title: '兰卓丽1',
-        subtitle: '3945867',
-        sell: '213.4万'
-      },
-      {
-        imageUrl: '/common/images/logo.png',
-        title: '兰卓丽2',
-        subtitle: '3945868',
-        sell: '153.4万'
-      },
-      {
-        imageUrl: '/common/images/logo.png',
-        title: '兰卓丽3',
-        subtitle: '3945869',
-        sell: '353.4万'
-      },
-      {
-        imageUrl: '/common/images/logo.png',
-        title: '兰卓丽3',
-        subtitle: '3845869',
-        sell: '353.4万'
-      },
-      {
-        imageUrl: '/common/images/logo.png',
-        title: '兰卓丽3',
-        subtitle: '3745869',
-        sell: '353.4万'
-      },
-      {
-        imageUrl: '/common/images/logo.png',
-        title: '兰卓丽3',
-        subtitle: '3645869',
-        sell: '353.4万'
-      },
-      {
-        imageUrl: '/common/images/logo.png',
-        title: '兰卓丽3',
-        subtitle: '3545869',
-        sell: '353.4万'
-      }
-    ]
-    this.setData({
-      supplierList
-    })
   },
 
   /**

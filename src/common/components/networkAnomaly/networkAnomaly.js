@@ -2,7 +2,7 @@
  * Networkanomaly - Component
  *
  * @desc      网络异常
- * @author    黄代松(Dyson) <huangdaisong@rainbowcn.com>
+ * @author     sumy
  * @date      2019-07-29
  */
 

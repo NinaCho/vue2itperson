@@ -2,7 +2,7 @@
  * request helper
  *
  * @desc      网络请求处理
- * @author    黄代松(Dyson) <huangdaisong@rainbowcn.com>
+ * @author     sumy
  * @date      2019-07-15
  */
 

@@ -2,7 +2,7 @@
  * General Text Data
  *
  * @description: 通用的文本数据
- * @author: huangdaisong@rainbowcn.com
+ * @author:  
  * @date: 2019-04-15 08:55:12
  */
 

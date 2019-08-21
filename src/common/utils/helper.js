@@ -2,7 +2,7 @@
  * helper funs
  *
  * @desc      帮助函数
- * @author    黄代松(Dyson) <huangdaisong@rainbowcn.com>
+ * @author     sumy
  * @date      2019-06-19
  */
 

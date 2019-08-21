@@ -2,7 +2,7 @@
  * i18n
  *
  * @desc      i18n 国际化插件
- * @author    黄代松(Dyson) <huangdaisong@rainbowcn.com>
+ * @author     sumy
  * @date      2019-07-18
  */
 

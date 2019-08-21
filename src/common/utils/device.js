@@ -5,7 +5,7 @@
  * get时，没有数据，则同步获取后返回
  *
  * @desc      系统设备信息
- * @author    黄代松(Dyson) <huangdaisong@rainbowcn.com>
+ * @author     sumy
  * @date      2019-07-18
  */
 const wechat = require('../wechat')

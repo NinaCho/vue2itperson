@@ -2,7 +2,7 @@
  * DateTime format & parse tools
  *
  * @desc      时间、日期格式解析和处理工具
- * @author    黄代松(Dyson) <huangdaisong@rainbowcn.com>
+ * @author     sumy
  * @date      2019-06-19
  */
 

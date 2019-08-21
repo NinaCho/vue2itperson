@@ -12,7 +12,7 @@
     "create": "node ./script/create.js",
     "init": "node ./script/init.js"
   },
-  "author": "huangdaisong@rainbowcn.com",
+  "author": " ",
   "repository": {
     "type": "git",
     "url": "git@code.lingzhi.com:framework/calcium-mp.git"

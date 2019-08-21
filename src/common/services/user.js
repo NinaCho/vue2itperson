@@ -2,7 +2,7 @@
  * UserService
  *
  * @desc      用户信息
- * @author    黄代松(Dyson) <huangdaisong@rainbowcn.com>
+ * @author     sumy
  * @date      2019-07-15
  */
 const { getSetting, authorize, request } = require('../wechat')
@@ -12,7 +12,7 @@ const { HOST } = require('../../configs/index')
 class User {
   constructor() {
     this.data = {
-      // 是否为虹领巾会员
+      // 是否为会员
       isVip: false,
       // 登录钥匙串
       accessToken: null,

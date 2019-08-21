@@ -9,7 +9,7 @@
  * <Number value="" bind:add="handleAdd" bind:subtract="handleSubtract" bind:input="handleUpdateNum" />
  *
  * @desc      +-商品按钮组件，完全受控组件
- * @author    黄代松(Dyson) <huangdaisong@rainbowcn.com>
+ * @author     sumy
  * @date      2019-07-26
  */
 

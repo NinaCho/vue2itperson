@@ -2,7 +2,7 @@
  * LocalLoading
  *
  * @desc      局部加载Loading
- * @author    黄代松(Dyson) <huangdaisong@rainbowcn.com>
+ * @author     sumy
  * @date      2019-04-12
  */
 

@@ -2,7 +2,7 @@
  * WxPage
  *
  * @desc      Page中自动添加多语言和设备信息
- * @author    黄代松(Dyson) <huangdaisong@rainbowcn.com>
+ * @author     sumy
  * @date      2019-07-18
  */
 const i18n = require('./utils/i18n')

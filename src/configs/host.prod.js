@@ -1,5 +1,5 @@
 module.exports = {
-  group: 'https://dev-mp.honglingjin.cn',
+  group: 'https://dev-mp.demo.cn',
 
-  scanbuy: 'https://dev-mp.honglingjin.cn'
+  scanbuy: 'https://dev-mp.demo.cn'
 }

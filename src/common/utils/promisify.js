@@ -2,7 +2,7 @@
  * Promise Factory Function
  *
  * @description: Make a wx Api into Promise
- * @author: huangdaisong@rainbowcn.com
+ * @author:  
  * @date: 2019-04-02 16:10:43
  */
 

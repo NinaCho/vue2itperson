@@ -2,7 +2,7 @@
  * Tab组件
  *
  * @desc      仅实现切换效果，内容显示隐藏需自行处理
- * @author    黄代松(Dyson) <huangdaisong@rainbowcn.com>
+ * @author     sumy
  * @date      2019-06-10
  */
 
