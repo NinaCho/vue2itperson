@@ -1,4 +1,6 @@
 {
-  "navigationBarTitleText": "灵智助手",
-  "usingComponents": {}
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "ImgEditor": "../../../common/components/imgEditor/imgEditor"
+  }
 }

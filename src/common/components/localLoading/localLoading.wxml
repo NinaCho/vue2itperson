@@ -1,8 +1,0 @@
-<view class="loading">
-  <view class="indicator">
-    <view class="dot" />
-    <view class="dot" />
-    <view class="dot" />
-  </view>
-  <view class="message" hidden="{{!showMessage}}">{{message}}</view>
-</view>

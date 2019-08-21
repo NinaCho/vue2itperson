@@ -12,6 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    images: []
   },
 
   /**
@@ -23,7 +24,9 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady() {},
+  onReady() {
+    this.imgEditor = this.selectComponent("#imgEditor")
+  },
 
   /**
    * 生命周期函数--监听页面显示
@@ -55,5 +58,11 @@ Page({
    */
   onShareAppMessage() {},
 
-  handleTap() {}
+  handleTap() {},
+  takePhoto() {
+    this.imgEditor.takePhoto()
+  },
+  submit() {
+    this.imgEditor.submit()
+  }
 })

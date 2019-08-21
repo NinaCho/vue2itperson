@@ -1,8 +1,0 @@
-<view class="wrapper">
-  <view class="bg">
-    <image class="icon-search" src="../../images/icon_search_grey.png" />
-    <input class="input" type="text" value="{{value}}" placeholder="{{placeholder}}" maxlength="{{maxlength}}" focus="{{focus}}" confirm-type="search" bindinput="handleInput" bindconfirm="handleSearch" bindfocus="handleFocus" bindblur="handleBlur" />
-    <icon class="icon-clear" type="clear" size="14" bind:tap="handleClear" hidden="{{!showClear || !clearIconVisible}}" />
-  </view>
-  <text class="btn-cancel" bind:tap="handleCancel" wx:if="{{!!value}}">取消</text>
-</view>

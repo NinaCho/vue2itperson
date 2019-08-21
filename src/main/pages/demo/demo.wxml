@@ -1,11 +1,12 @@
 <view class="container">
   <view class="demo-container">
-    <textarea/>
-    </view>
-  <!-- 添加按钮 -->
-  <view class="bottom-container">
-    <view class="append-button">添加图片</view>
-    <view class="append-button">完成</view>
+    <ImgEditor images="{{images}}" id="imgEditor">
+      <view slot="imgContent" class="bottom-container">
+        <!-- 添加按钮 -->
+        <view class="append-button" bindtap="takePhoto">添加图片</view>
+        <view class="append-button" bindtap="submit">完成</view>
+      </view>
+    </ImgEditor>
   </view>
 </view>
 

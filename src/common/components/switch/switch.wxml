@@ -1,8 +1,0 @@
-<base-radio
-  checkedImage="{{checkedImage || configs[type].checkedImage}}"
-  unCheckedImage="{{unCheckedImage || configs[type].unCheckedImage}}"
-  bind:change="handleChange"
-  width="{{width || configs[type].width}}"
-  height="{{height || configs[type].height}}"
-/>
-

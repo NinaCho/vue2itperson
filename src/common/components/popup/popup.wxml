@@ -1,9 +1,0 @@
-<view class="mask {{ visible ? 'show' : '' }}" bind:tap="handleClickMask" />
-
-<view class="popup {{ visible ? 'show' : '' }} {{ isFilleted ? 'popup-fillet' : ''}}">
-  <view class="popup-header">
-    <slot name="header" />
-  </view>
-  <slot name="body" />
-</view>
-
