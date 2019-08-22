@@ -10,8 +10,6 @@
   "permission": {},
   "sitemapLocation": "sitemap.json",
   "pages": [
-    "main/pages/demo/demo",
-    "main/pages/demo/addSupplier",
-    "main/pages/demo/supplierDetail"
+    "main/pages/demo/demo"
   ]
 }

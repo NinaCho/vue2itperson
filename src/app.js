@@ -5,10 +5,10 @@
  * @author     sumy
  * @date      2019-07-22
  */
-const user = require('./common/services/user')
-const network = require('./common/utils/network')
-const device = require('./common/utils/device')
-const { showModal } = require('./common/wechat')
+// const user = require('./common/services/user')
+// const network = require('./common/utils/network')
+// const device = require('./common/utils/device')
+// const { showModal } = require('./common/wechat')
 
 App({
   onLaunch(options) {
@@ -16,11 +16,11 @@ App({
     this.startUpdateListener()
 
     // 初始化用户信息
-    user.init()
-    device.init()
+    // user.init()
+    // device.init()
 
     // 监听网络状态
-    network.startListener()
+    // network.startListener()
   },
 
   onShow(option) {},

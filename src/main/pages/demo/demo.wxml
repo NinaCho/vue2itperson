@@ -1,10 +1,10 @@
 <view class="container">
-  <view class="demo-container">
-    <ImgEditor images="{{images}}" id="imgEditor">
-      <view slot="imgContent" class="bottom-container">
+  <view class="demoWrap">
+    <ImgEditor id="imgEditor">
+      <view slot="imgContent" class="bottomWarp">
         <!-- 添加按钮 -->
-        <view class="append-button" bindtap="takePhoto">添加图片</view>
-        <view class="append-button" bindtap="submit">完成</view>
+        <view class="btn whiteBtn" bindtap="takePhoto">添加图片</view>
+        <view class="btn yellowBtn" bindtap="submit">完成</view>
       </view>
     </ImgEditor>
   </view>

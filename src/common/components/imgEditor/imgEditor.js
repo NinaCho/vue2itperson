@@ -23,8 +23,8 @@ Component({
     currentVlaue: '', // 当前焦点所在的输入框的内容
     currentCursor: 0, // 当前焦点的位置（失去焦点时）
     currentIndex: 0, // 当前输入框属于第几个元素
-    autoheight: true, // 输入框处于第一个位置的时候，设置固定高度，达到一定高度的时候自动增高
-    areaHeight: 914,
+    autoheight: true, // 输入框处于第一个位置的时候，设置固定高度，超过三行高度的时候自动增高
+    areaHeight: 667,
     windowWidth: 375,
     dataAry: [{
       'type': 'string',
@@ -39,9 +39,9 @@ Component({
     var that = this
     // 获取手机型号  待定待定待定待定待定
     wx.getSystemInfo({
-      success: function(res) { // 375 * 667
-        let windowHeight = (res.windowHeight * (750 / res.windowWidth))
-        let areaHeight = windowHeight - 310
+      success(res) { // 375 * 667
+        let windowHeight = (res.windowHeight * (667 / res.windowWidth))
+        let areaHeight = windowHeight - 375
         that.setData({
           areaHeight: areaHeight,
           windowWidth: res.windowWidth
@@ -97,11 +97,13 @@ Component({
       console.log(lineHeight, this.data.areaHeight)
       // 当前输入框处于的位置
       var index = e.currentTarget.dataset.index
-      // 判断当前输入框是否处于第一个位置，是的话，超过一定行数，则改变aotoheight值为true
+      // 判断当前输入框是否处于第一个位置，是的话，超过行数，则改变aotoheight值为true
       if (index == 0) {
-        if (lineHeight > this.data.areaHeight) { // 行数大于等于10行的时候
+        // debugger
+        if (lineHeight > this.data.areaHeight) {
           this.setData({
-            autoheight: true
+            autoheight: true,
+            // areaHeight: lineHeight
           })
         } else {
           this.setData({
@@ -160,22 +162,19 @@ Component({
         currentIndex: this.data.currentIndex - 1
       })
       this._checkEditData(res => { })
-      // 删除方法传到外部，不管外部怎么操作，本界面删除的图片已经从数据源中删除。（外部可做删除网络图片的操作）
-      this.triggerEvent('graphicDeleteImg', imgUrl)
     },
     // 对文本编辑的内容进行提交
     submit(e) {
-      debugger
       // 判断当前编辑是否有内容，图片是否都已经上传
-        this._checkEditData(res => {
-          if(res.length <= 0){
-            console.info('提交', this.data.dataAry)
-            // 提交按钮回调 待定
-            // this.triggerEvent('submit', xx)
-          } else {
-            // TO DO
-          }
-        })
+      this._checkEditData(res => {
+        if(res.length <= 0){
+          console.info('提交', this.data.dataAry)
+          // 提交按钮回调 待定
+          // this.triggerEvent('submit', xx)
+        } else {
+          // TO DO
+        }
+      })
     },
     /********************************私有方法***************************************** */
     /** 

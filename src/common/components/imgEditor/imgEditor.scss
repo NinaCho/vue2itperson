@@ -1,35 +1,33 @@
 .container{
   position: relative;
-  display: flex;
   /* height: 100%; */
-  flex-direction: column;
+  padding: 10px;
   background-color: #fff;
 }
 
 /* 内容view */
 .contentView{
-  border: 1px solid red;
   display: flex;
-  /* width: 100%; */
-  margin: 30rpx;
-  flex-direction: column
+  flex-direction: column;
+  margin: 5rpx;
+  margin-bottom: 100rpx;
+  // border: 1px solid red;
 }
 /* 输入框 */
 .area{
   color: #333;
   width: 100%;
   font-size: 16px;
-  margin-bottom: 50rpx;
   line-height: 20px;
-  height: 914rpx;
+  margin-top: 2rpx;
+  height: 50rpx;
 }
 /* 图片view */
 .imgView{
   display: flex;
-  margin-bottom: 50rpx;
   width: 100%;
   position: relative;
-  border: 2rpx #d8d8d8 solid;  
+  border: 2rpx #D8D8D8 solid;  
 }
 /* 删除图片按钮 */
 .deleteImg{
@@ -65,26 +63,31 @@
 .img{
   width: 100%;
 }
-/* 添加图片按钮 */
-.takePhoto{
-  /* display: flex; */
-  position: fixed;
-  bottom: 250rpx;
-  width: 150rpx;
-  height: 150rpx;
-  right: 30rpx;
-}
-/* 提交按钮 */
-.submitBtn{
-  color: #fff;
-  font-size: 32rpx;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border-radius: 45rpx;
-  height: 90rpx;
-  width: 690rpx;
-  margin-top: 80rpx;
-  margin-bottom: 80rpx;
-  /* background-color: #FF726F */
+// /* 添加图片按钮 */
+// .takePhoto{
+//   /* display: flex; */
+//   position: fixed;
+//   bottom: 250rpx;
+//   width: 150rpx;
+//   height: 150rpx;
+//   right: 30rpx;
+// }
+// /* 提交按钮 */
+// .submitBtn{
+//   color: #fff;
+//   font-size: 32rpx;
+//   align-items: center;
+//   justify-content: center;
+//   text-align: center;
+//   border-radius: 45rpx;
+//   height: 90rpx;
+//   width: 690rpx;
+//   margin-top: 80rpx;
+//   margin-bottom: 80rpx;
+//   /* background-color: #FF726F */
+// }
+.triggerWrap {
+  background: #fff;
+  position: absolute;
+  z-index: 999;
 }

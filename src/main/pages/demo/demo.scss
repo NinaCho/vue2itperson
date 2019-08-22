@@ -1,33 +1,49 @@
 @import '../../../common/styles/themes.scss';
 
 .container {
+  background: #f4f4f4;
   position: relative;
 }
 
-.demo-container {
+.demoWrap {
   width: 100%;
-  padding: 15px 15px 0 15px;
+  padding-top: 15px;
   box-sizing: border-box;
 }
 
-.bottom-container {
+.bottomWarp {
   width: 100%;
   position: fixed;
   bottom: 0;
   left: 0;
-  padding: 15px;
   box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
-.append-button {
-  display: inline-block;
+.btn {
+  width: 50%;
+  bottom:0;
+  display: block;
   color: #333;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+  text-align: center;
+}
+
+.yellowBtn {
   background: #FFD700;
   border: 1rpx solid #FFD700;
-  border-radius: 4px;
-  font-size: 14px;
-  height: 30px;
-  line-height: 30px;
-  padding: 0 15px;
-  margin-right: 10px;
+}
+
+.whiteBtn {
+  background: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  image {
+    width: 16px;
+    height: 16px;
+  }
 }

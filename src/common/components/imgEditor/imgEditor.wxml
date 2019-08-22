@@ -3,20 +3,20 @@
     <block wx:for='{{dataAry}}' wx:key='{{item}}'>
       <textarea
         class='area'
-        style='height:{{areaHeight}}rpx;font-size:{{item.fontSize}}rpx;color:{{item.color}}'
+        style='height: {{areaHeight}}rpx;'
         bindblur='bindblur'
         bindinput='bindinput'
         bindlinechange='bindlinechange'
         data-index='{{index}}'
-        placeholder="{{(index == dataAry.length - 1) ? '请输入内容':''}}"
+        placeholder="{{(index === dataAry.length - 1) ? '添加图片和文字，图片限20张' : ''}}"
         value='{{item.value}}'
-        auto-height="{{(index == 0 && dataAry.length == 1)?autoheight:'true'}}"
+        auto-height="{{(index === 0 && dataAry.length === 1) ? autoheight : 'true'}}"
         cursor-spacing='20'
         maxlength='-1'
         wx:if="{{item.type == 'string'}}"
       />
-      <view class='imgView' wx:else="{{item.type == 'image'}}">
-        <view class='img-field-view' wx:if='{{item.uploadState == -1}}' catchtap='imgUploadAginEvent' data-index='{{index}}'>
+      <view class='imgView' wx:else="{{item.type === 'image'}}">
+        <view class='img-field-view' wx:if='{{item.uploadState === -1}}' catchtap='imgUploadAginEvent' data-index='{{index}}'>
           <image src='../../../common/images/img_upload_field.png'/>
           <text>图片上传失败，请点击重试</text>
         </view>
@@ -35,6 +35,8 @@
       </view>
     </block>
   </view>
-<slot name="imgContent" />
+  <view class="triggerWrap">
+    <slot name="imgContent" />
+  </view>
 </view>
 
