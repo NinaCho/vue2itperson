@@ -1,12 +1,6 @@
 <view class="container">
   <view class="demoWrap">
-    <ImgEditor id="imgEditor">
-      <view slot="imgContent" class="bottomWarp">
-        <!-- 添加按钮 -->
-        <view class="btn whiteBtn" bindtap="takePhoto">添加图片</view>
-        <view class="btn yellowBtn" bindtap="submit">完成</view>
-      </view>
-    </ImgEditor>
+    <ImgEditor id="imgEditor" bindsubmit="submit" />
   </view>
 </view>
 

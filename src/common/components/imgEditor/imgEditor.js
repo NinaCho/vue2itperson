@@ -8,9 +8,7 @@
 
 
 Component({
-  options: {
-    multipleSlots: true
-  },
+  options: {},
   /**
    * 组件的属性列表
    */
@@ -27,7 +25,7 @@ Component({
     areaHeight: 667,
     windowWidth: 375,
     dataAry: [{
-      'type': 'string',
+      'type': 1, // 1: 字符串 2：图片 
       'value': ''
     }, 
     ], //输入元素的数组
@@ -44,7 +42,7 @@ Component({
         let areaHeight = windowHeight - 375
         that.setData({
           areaHeight: areaHeight,
-          windowWidth: res.windowWidth
+          windowWidth: res.windowWidth - 30
         })
       },
     })
@@ -60,13 +58,13 @@ Component({
       let item = this.data.dataAry[this.data.currentIndex]
       if (item != undefined) {
         var dic = {
-          'type': 'string',
+          'type': 1,
           'value': this.data.currentVlaue
         }
         this.data.dataAry.splice(this.data.currentIndex, 1, dic)
       } else {
         var dic = {
-          'type': 'string',
+          'type': 1,
           'value': this.data.currentVlaue
           }
         this.data.dataAry.push(dic)
@@ -83,7 +81,7 @@ Component({
       })
       let item = this.data.dataAry[this.data.currentIndex]
       var dic = {
-        'type': 'string',
+        'type': 1,
         'value': this.data.currentVlaue
       }
       this.data.dataAry.splice(this.data.currentIndex, 1, dic)
@@ -113,19 +111,63 @@ Component({
         }
       }
     },
+    // 获取当前图片index
+    getIndex() {
+      let index = this.data.dataAry.length;
+      return index
+    },
+    // 计算图片宽度  
+    getWidth(width) {
+      if (width >= this.data.windowWidth) {
+        width = this.data.windowWidth
+      }
+      return width
+    },
+    // 画图片
+    drawImage(item) {
+      const that = this;
+      const index = that.getIndex()
+      wx.getImageInfo({ // 获取图片info
+          src: item.path,
+          success(res) {
+            var ctx = wx.createCanvasContext('canvas' + index, that);
+            // 设置canvas尺寸
+            console.log(res.height)
+            console.log(res.width)
+            var towidth = that.getWidth(res.width)          // 按屏幕宽度-30的比例压缩
+            var toheight = Math.trunc(towidth * res.height / res.width);    // 根据图片比例换算出图片高度
+            // debugger
+            item.toWidth = towidth
+            item.toHeight = toheight
+            item.index = index
+            ctx.drawImage(item.path, 0, 0, res.width, res.height, 0, 0, towidth, toheight)
+            //  debugger
+            ctx.draw(false, () => {
+                wx.canvasToTempFilePath({
+                  canvasId: 'canvas',
+                  fileType:"jpg",
+                  success(res) {
+                      console.log(res)
+                  }
+                })
+            })
+            that._dealDataArray(item.path, item, 1)
+          }
+        })
+    },
     // 拍照
     takePhoto() {
-      var that = this;
+      const that = this;
+      // 超过二十张 return 
       wx.chooseImage({
         count: 1,
-        sizeType: ['original', 'compressed'], // 可选择原图或压缩后的图片
+        sizeType: ['compressed'], // 选择压缩后的图片
         sourceType: ['album', 'camera'],
-       success(res) {
-          console.log(res);
-          for (var item of res.tempFilePaths) {
-              // 上传图片再显示 暂定
-              that._dealDataArray(item, res, 1)
-          }
+        success(photo) {
+          // console.log(photo);
+          photo.tempFiles.map((item) => {
+            that.drawImage(item)
+          })
         },
       })
     },
@@ -170,9 +212,9 @@ Component({
         if(res.length <= 0){
           console.info('提交', this.data.dataAry)
           // 提交按钮回调 待定
-          // this.triggerEvent('submit', xx)
+          this.triggerEvent('submit', this.data.dataAry)
         } else {
-          // TO DO
+          // TO DO 无提交内容提示
         }
       })
     },
@@ -189,19 +231,20 @@ Component({
       const currentCursor = this.data.currentCursor
       var item = this.data.dataAry[this.data.currentIndex]
       var index = this.data.currentIndex
-      if (item.type == 'string') { // 文字中插入图片
+      if (item.type == 1) { // 文字中插入图片
         var before = {
-          'type': 'string',
+          'type': 1,
           'value': this.data.currentVlaue.substring(0, currentCursor)
         }
         var middle = {
-          'type': 'image',
+          'type': 2,
+          'value': '上传后地址',
           'imgPath': imgPath,
           'imgUrl': imgUrl,
           'uploadState': state
         }
         var after = {
-          'type': 'string',
+          'type': 1,
           'value': this.data.currentVlaue.substring(currentCursor, this.data.currentVlaue.length)
         }
         console.log(before, middle, after)
@@ -228,7 +271,8 @@ Component({
         })
       } else { // 图片后面插入图片
         var middle = {
-          'type': 'image',
+          'type': 2,
+          'value': '上传后地址',
           'imgPath': imgPath,
           'imgUrl': imgUrl,
           'uploadState': state
@@ -243,7 +287,7 @@ Component({
       // 判断当前数据是否可以提交
       this._checkEditData(res => { })
     },
-    // 图片上传到服务器，服务器返回一个图片地址
+    // 图片上传到服务器，服务器返回多个图片地址
     _uploadImage(filePath, callBack) {
       // TO DO
     },
@@ -258,7 +302,7 @@ Component({
        // 如果数据源中只有一个元素，需要判断这个元素是否有值
         let strItem = this.data.dataAry[0]
         if (strItem.value.length == 0) {
-          error = '请输入内容'
+          error = '请输入内容xxxx'
         }
       } else {
         for (let item of this.data.dataAry) {

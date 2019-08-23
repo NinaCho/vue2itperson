@@ -59,10 +59,10 @@ Page({
   onShareAppMessage() {},
 
   handleTap() {},
-  takePhoto() {
-    this.imgEditor.takePhoto()
+  takePhoto(e) {
+    console.info(e.detail)
   },
-  submit() {
-    this.imgEditor.submit()
+  submit(e) {
+    console.info(e.detail)
   }
 })
