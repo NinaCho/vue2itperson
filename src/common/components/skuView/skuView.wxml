@@ -1,0 +1,17 @@
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th">颜色</view>
+    <view class="th">尺寸</view>
+    <view class="th ">可售库存</view>
+  </view>
+  <block wx:for="{{listData}}" wx:key="{{code}}">
+    <view class="tr">
+      <view class="td">{{item.color}}</view>
+      <view class="td">{{item.size}}</view>
+      <view class="td">
+        <input>{{item.stock}}</input>
+      </view>
+    </view>
+  </block>
+</view>
+

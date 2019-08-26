@@ -1,6 +1,9 @@
 <view class="container">
   <view class="demoWrap">
-    <ImgEditor id="imgEditor" bindsubmit="submit" />
+    <view catchtap="tagChange" data-key="{{1}}">图文编辑</view>
+    <view catchtap="tagChange" data-key="{{2}}">尺码库存编辑</view>
+    <ImgEditor bindsubmit="submit" wx:if="{{tag == 1}}" />
+    <SkuView wx:if="{{tag == 2}}" />
   </view>
 </view>
 

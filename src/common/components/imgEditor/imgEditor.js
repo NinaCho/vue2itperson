@@ -54,26 +54,25 @@ Component({
   methods: {
     // 输入框失去焦点时触发
     bindblur(e) {
-      console.log(e);
-      let item = this.data.dataAry[this.data.currentIndex]
-      if (item != undefined) {
-        var dic = {
-          'type': 1,
-          'value': this.data.currentVlaue
-        }
-        this.data.dataAry.splice(this.data.currentIndex, 1, dic)
-      } else {
-        var dic = {
-          'type': 1,
-          'value': this.data.currentVlaue
-          }
-        this.data.dataAry.push(dic)
-      }
-      this._checkEditData(res=>{})
+      // debugger
+      // let item = this.data.dataAry[this.data.currentIndex]
+      // if (item != undefined) {
+      //   var dic = {
+      //     'type': 1,
+      //     'value': this.data.currentVlaue
+      //   }
+      //  this.data.dataAry.splice(this.data.currentIndex, 1, dic)
+      // } else {
+      //   var dic = {
+      //     'type': 1,
+      //     'value': this.data.currentVlaue
+      //     }
+      //  this.data.dataAry.push(dic)
+      // }
+      // this._checkEditData(res=>{})
     },
     // 输入框输入时触发
     bindinput(e) {
-      console.log(e);
       this.setData({
         currentVlaue: e.detail.value,
         currentCursor: e.detail.cursor, //  获取焦点的位置
@@ -85,14 +84,14 @@ Component({
         'value': this.data.currentVlaue
       }
       this.data.dataAry.splice(this.data.currentIndex, 1, dic)
-      this._checkEditData(res => { })
+      // this._checkEditData(res => { })
     },
     // 输入框行数变化时触发
     bindlinechange(e) {
       // 当前输入框行数 待定待定待定待定待定
       // debugger
       var lineHeight = e.detail.height * (750 / this.data.windowWidth)
-      console.log(lineHeight, this.data.areaHeight)
+      // console.log(lineHeight, this.data.areaHeight)
       // 当前输入框处于的位置
       var index = e.currentTarget.dataset.index
       // 判断当前输入框是否处于第一个位置，是的话，超过行数，则改变aotoheight值为true
@@ -130,80 +129,58 @@ Component({
       wx.getImageInfo({ // 获取图片info
           src: item.path,
           success(res) {
-            var ctx = wx.createCanvasContext('canvas' + index, that);
-            // 设置canvas尺寸
-            console.log(res.height)
-            console.log(res.width)
+            console.info(index)
             var towidth = that.getWidth(res.width)          // 按屏幕宽度-30的比例压缩
             var toheight = Math.trunc(towidth * res.height / res.width);    // 根据图片比例换算出图片高度
-            // debugger
-            item.toWidth = towidth
-            item.toHeight = toheight
+            item.toWidth = towidth // towidth
+            item.toHeight = toheight // toheight
             item.index = index
-            ctx.drawImage(item.path, 0, 0, res.width, res.height, 0, 0, towidth, toheight)
-            //  debugger
-            ctx.draw(false, () => {
-                wx.canvasToTempFilePath({
-                  canvasId: 'canvas',
-                  fileType:"jpg",
-                  success(res) {
-                      console.log(res)
-                  }
-                })
-            })
-            that._dealDataArray(item.path, item, 1)
+            that._dealDataArray(item.path, item, 1, res)
           }
         })
     },
     // 拍照
     takePhoto() {
       const that = this;
+      const dataAry = this.data.dataAry
       // 超过二十张 return 
+      const arr = dataAry.filter(function(item){
+          return item.type == 2; 
+      })
+      if (arr.length >= 20) {
+        wx.showToast({
+          title: '图片最多只能20张',
+          icon: 'none',
+          duration: 1000
+        });
+        return
+      }
       wx.chooseImage({
         count: 1,
         sizeType: ['compressed'], // 选择压缩后的图片
         sourceType: ['album', 'camera'],
         success(photo) {
           // console.log(photo);
-          photo.tempFiles.map((item) => {
-            that.drawImage(item)
-          })
+         // that.drawImage(photo.tempFiles[0])
+          that.drawImage(photo.tempFiles[0])
+          // photo.tempFiles.map((item) => {
+          //   that.drawImage(item)
+          // })
         },
       })
+     
     },
     // 点击重新上传图片
     imgUploadAginEvent(e) {
      // TO DO
     },
+    // 图片操作
+    doImg(e) {
+
+    },
     // 图片删除
     deleteImg(e) {
-      var index = e.currentTarget.dataset.index;
-      var imgItem = this.data.dataAry[index]
-      var imgUrl = imgItem.value
-
-      var before = this.data.dataAry[index - 1]
-      var middle = this.data.dataAry[index + 1]
-      //图片前后都有数据存在
-      if (before != undefined && middle != undefined) {
-        //删除图片的前后都是文字时
-        if (before.type == 'string' && middle.type == 'string') {
-          var string = before.value + middle.value
-          var after = {
-            'type': 'string',
-            'value': string
-          }
-          this.data.dataAry.splice(index - 1, 3, after)
-        } else { //删除图片前后是图片和文字时
-          this.data.dataAry.splice(index, 1)
-        }
-      } else { //图片前面没有数据时
-        this.data.dataAry.splice(index, 1)
-      }
-      this.setData({
-        dataAry: this.data.dataAry,
-        currentIndex: this.data.currentIndex - 1
-      })
-      this._checkEditData(res => { })
+      // TO DO
     },
     // 对文本编辑的内容进行提交
     submit(e) {
@@ -211,7 +188,7 @@ Component({
       this._checkEditData(res => {
         if(res.length <= 0){
           console.info('提交', this.data.dataAry)
-          // 提交按钮回调 待定
+          // 提交按钮回调
           this.triggerEvent('submit', this.data.dataAry)
         } else {
           // TO DO 无提交内容提示
@@ -225,9 +202,8 @@ Component({
      * imgUrl :图片上传后返回地址
      * state: 图片的上传状态，-1:上传失败，0:未做上传操作，1:上传成功
      */
-    _dealDataArray(imgPath, imgUrl, state) {
+    _dealDataArray(imgPath, imgUrl, state, res) {
       // 取出当前插入图片位置的输入框内容，在焦点位置将输入框内容分为两个元素，只在焦点后插入图片元素
-      // debugger
       const currentCursor = this.data.currentCursor
       var item = this.data.dataAry[this.data.currentIndex]
       var index = this.data.currentIndex
@@ -238,8 +214,7 @@ Component({
         }
         var middle = {
           'type': 2,
-          'value': '上传后地址',
-          'imgPath': imgPath,
+          'value': imgPath,
           'imgUrl': imgUrl,
           'uploadState': state
         }
@@ -247,8 +222,7 @@ Component({
           'type': 1,
           'value': this.data.currentVlaue.substring(currentCursor, this.data.currentVlaue.length)
         }
-        console.log(before, middle, after)
-
+        // console.log(before, middle, after)
         if (before.value.length > 0 && after.value.length > 0) { // 图片前后文字都存在
           this.data.dataAry.splice(this.data.currentIndex, 1, before, middle, after)
           index = index + 1;
@@ -272,20 +246,40 @@ Component({
       } else { // 图片后面插入图片
         var middle = {
           'type': 2,
-          'value': '上传后地址',
-          'imgPath': imgPath,
+          'value': imgPath,
           'imgUrl': imgUrl,
           'uploadState': state
         }
         // 在上一张图片后面插入一张图片，需要index+1
         this.data.dataAry.splice(this.data.currentIndex + 1, 0, middle)
-        this.setData({
-          dataAry: this.data.dataAry,
-          currentIndex: this.data.currentIndex + 1
-        })
       }
+      console.info(this.data.dataAry)
+      // this._test(imgUrl, res, imgPath)
+      this.setData({
+        dataAry: this.data.dataAry,
+        currentIndex: this.data.currentIndex + 1
+      })
       // 判断当前数据是否可以提交
-      this._checkEditData(res => { })
+      // this._checkEditData(res => { })
+    },
+
+    _test(imgUrl, res, imgPath) {
+      // debugger
+      var ctx = wx.createCanvasContext('canvas' + imgUrl.index, this);
+        ctx.fillRect(0, 0, imgUrl.towidth, imgUrl.toheight)
+        ctx.drawImage(imgPath, 0, 0, imgUrl.towidth, imgUrl.toheight, 0, 0, imgUrl.towidth, imgUrl.toheight)
+        ctx.draw(false, () => {
+          wx.canvasToTempFilePath({
+            canvasId: 'canvas' + imgUrl.index,
+            fileType:"jpg",
+            success(res) {
+              console.log(res)
+            },
+            fail(err) {
+              console.log(err)
+            }
+          })
+        })
     },
     // 图片上传到服务器，服务器返回多个图片地址
     _uploadImage(filePath, callBack) {
@@ -307,7 +301,7 @@ Component({
       } else {
         for (let item of this.data.dataAry) {
           // for循环判断图片数据，只要有一张图片未上传成功，就提交不了
-          if (item.type == 'image') {
+          if (item.type == '2') {
             if (item.uploadState == -1) {
               // 有图片没有上传成功，提示
               error = '有图片没有上传，请重新上传'

@@ -12,7 +12,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    images: []
+    images: [],
+    tag: 0
   },
 
   /**
@@ -25,7 +26,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-    this.imgEditor = this.selectComponent("#imgEditor")
+    // this.imgEditor = this.selectComponent("#imgEditor")
   },
 
   /**
@@ -59,10 +60,12 @@ Page({
   onShareAppMessage() {},
 
   handleTap() {},
-  takePhoto(e) {
-    console.info(e.detail)
-  },
   submit(e) {
     console.info(e.detail)
+  },
+  tagChange(e) {
+    this.setData({
+      tag: e.target.dataset.key
+    })
   }
 })
